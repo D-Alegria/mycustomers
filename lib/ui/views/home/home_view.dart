@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mycustomers/core/models/business_model.dart';
 import 'package:stacked/stacked.dart';
-import 'package:stacked_hooks/stacked_hooks.dart';
-import 'package:flutter_screenutil/size_extension.dart';
 import '../../widgets/shared/breakdownCard.dart';
 import '../../widgets/shared/tabs.dart';
 import 'home_viewmodel.dart';
@@ -21,11 +18,8 @@ class HomeView extends StatelessWidget {
                 padding: const EdgeInsets.all(10.0),
                 child: Column(
                   children: <Widget>[
-                    Container(
-                        child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: _HeaderBar(),
-                    )),
+                    /// MOVED HEADER TO MAIN VIEW FOR SYNCHRONIZATION
+                    /// THROUGH ALL MAIN PAGES
                     TextField(
                       decoration: InputDecoration(
                         border: OutlineInputBorder(),
@@ -143,63 +137,4 @@ class HomeView extends StatelessWidget {
       viewModelBuilder: () => HomeViewModel(),
     );
   }
-}
-
-class _HeaderBar extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      // crossAxisAlignment: CrossAxisAlignment.stretch,
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: <Widget>[
-        Expanded(flex: 4, child: BusinessSelector()),
-        SizedBox(width: 210.w),
-        Expanded(
-            flex: 2,
-            child: Stack(
-              alignment: Alignment.topRight,
-              children: [
-                Icon(Icons.alarm),
-                CircleAvatar(
-                  backgroundColor: Colors.red.shade800,
-                  radius: 5.0,
-                ),
-                    
-              ],
-              overflow: Overflow.clip,
-            )),
-      ],
-    );
-  }
-}
-
-class BusinessSelector extends HookViewModelWidget<HomeViewModel> {
-  BusinessSelector({Key key}) : super(key: key, reactive: false);
-
-  @override
-  Widget buildViewModelWidget(BuildContext context, HomeViewModel model) =>
-      Container(
-        child: DropdownButtonHideUnderline(
-          child: DropdownButton<Business>(
-            isExpanded: true,
-            value: model.selectedBusiness,
-            items: Business.business.map((business) {
-              return DropdownMenuItem<Business>(
-                value: business,
-                child: Text(
-                  business.businessName,
-                  style: TextStyle(
-                    fontSize: 14.sp,
-                    fontWeight: FontWeight.w900,
-                    //     color: Colors.blueAccent,
-                  ),
-                ),
-              );
-            }).toList(),
-            onChanged: (value) {
-              model.changeBusiness(value);
-            },
-          ),
-        ),
-      );
 }

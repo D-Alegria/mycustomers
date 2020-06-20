@@ -3,18 +3,19 @@ part of '../../views/main/main_view.dart';
 ///Created by Demilade Oladugba on 6/19/2020
 
 BottomNavigationBar mainViewNavBar(
-    MainViewModel model, PageController controller) {
+    MainViewModel model, PageController controller, BuildContext context) {
   return BottomNavigationBar(
     currentIndex: model.currentPageIndex,
     onTap: (int index) {
       model.pageIndex = index;
       controller.animateToPage(index,
-          duration: const Duration(milliseconds: 300), curve: Curves.easeIn);
+          duration: const Duration(milliseconds: 1000), curve: Curves.easeOutBack);
     },
     items: [
       BottomNavigationBarItem(
-        icon: SvgPicture.asset(
+          icon: SvgPicture.asset(
           home,
+          color: Theme.of(context).accentIconTheme.color,
           semanticsLabel: 'Home',
         ),
         title: Text(
@@ -24,13 +25,15 @@ BottomNavigationBar mainViewNavBar(
           ),
         ),
         activeIcon: SvgPicture.asset(
-          homeActive,
+          home,
+          color: Theme.of(context).iconTheme.color,
           semanticsLabel: 'Home',
         ),
       ),
       BottomNavigationBarItem(
         icon: SvgPicture.asset(
           marketing,
+          color: Theme.of(context).accentIconTheme.color,
           semanticsLabel: 'Marketing',
         ),
         title: Text(
@@ -40,13 +43,15 @@ BottomNavigationBar mainViewNavBar(
           ),
         ),
         activeIcon: SvgPicture.asset(
-          marketingActive,
+          marketing,
+          color: Theme.of(context).iconTheme.color,
           semanticsLabel: 'Marketing',
         ),
       ),
       BottomNavigationBarItem(
         icon: SvgPicture.asset(
           profile,
+          color: Theme.of(context).accentIconTheme.color,
           semanticsLabel: 'Profile',
         ),
         title: Text(
@@ -56,7 +61,8 @@ BottomNavigationBar mainViewNavBar(
           ),
         ),
         activeIcon: SvgPicture.asset(
-          profileActive,
+          profile,
+          color: Theme.of(context).iconTheme.color,
           semanticsLabel: 'Profile',
         ),
       ),
