@@ -1,13 +1,27 @@
-
+import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 
 class MainViewModel extends BaseViewModel {
+  final PageController _controller =
+  PageController(initialPage: 0, keepPage: true);
 
-  int _index = 0;
-  int get index => _index;
+  PageController get controller => _controller;
 
-  void changeTab(int index) {
-    _index = index;
+  String _username;
+
+  String get currentUsername => _username;
+  int _pageIndex;
+
+  int get currentPageIndex => _pageIndex;
+
+  set pageIndex(int index) {
+    _pageIndex = index;
+    notifyListeners();
+  }
+
+  void initialise() {
+    _username = 'wearsmute';
+    _pageIndex = 0;
     notifyListeners();
   }
 }
