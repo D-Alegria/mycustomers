@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:mycustomers/core/models/business_model.dart';
-import 'package:mycustomers/ui/views/home/home_view.dart';
-import 'package:mycustomers/ui/views/marketing/marketing_view.dart';
-import 'package:mycustomers/ui/views/profile/profile_view.dart';
+import 'package:mycustomers/ui/views/business/business_home_page/business_homepage_view.dart';
+import 'package:mycustomers/ui/views/home/home_page/home_page_view.dart';
+import 'package:mycustomers/ui/views/marketing/marketing_home_page/marketing_homepage_view.dart';
 import 'package:stacked/stacked.dart';
-import 'package:mycustomers/core/extensions/string_extension.dart';
 import 'package:flutter_screenutil/size_extension.dart';
 import 'package:stacked_hooks/stacked_hooks.dart';
+import 'package:mycustomers/core/extensions/string_extension.dart';
 
 import 'main_viewmodel.dart';
 
@@ -39,9 +39,9 @@ class MainView extends StatelessWidget {
                   controller: model.controller,
                   onPageChanged: (int index) => model.pageIndex = index,
                   children: [
-                    HomeView(),
-                    MarketingView(),
-                    ProfileView(),
+                    HomePageView(),
+                    MarketingHomePageView(),
+                    BusinessHomePageView(),
                   ],
                 ),
               )
