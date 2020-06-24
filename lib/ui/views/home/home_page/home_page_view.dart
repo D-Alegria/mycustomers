@@ -9,10 +9,8 @@ import 'package:stacked/stacked.dart';
 import 'home_page_viewmodel.dart';
 
 class HomePageView extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
-
     return ViewModelBuilder<HomePageViewModel>.reactive(
       builder: (context, model, child) => Scaffold(
         body: SafeArea(

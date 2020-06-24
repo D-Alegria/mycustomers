@@ -1,10 +1,7 @@
 import 'package:mycustomers/app/locator.dart';
 import 'package:mycustomers/app/router.dart';
-import 'package:mycustomers/core/models/business_model.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
-
-
 
 class HomePageViewModel extends BaseViewModel {
   String _title = 'Home View';
@@ -15,18 +12,9 @@ class HomePageViewModel extends BaseViewModel {
 
   void btnViewDetails() {
     print('hello');
-  } 
-
-  Business selectedBusiness = Business.business[0];
-
-  void changeBusiness(value) {
-    selectedBusiness = value;
-    notifyListeners();
-    // print(value.businessName); //Uncomment to see value in terminal
-
-    // TODO: Create additional Function to Use Value and Change the Operation.
   }
 
+  /// MOVED BUSINESS LOGIC TO MAIN VIEW
 
   final NavigationService _navigationService = locator<NavigationService>();
 
@@ -34,4 +22,3 @@ class HomePageViewModel extends BaseViewModel {
     await _navigationService.navigateTo(Routes.addcustomerRoute);
   }
 }
-
