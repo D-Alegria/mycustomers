@@ -7,10 +7,22 @@ import 'const_color.dart';
 final _lightThemeData = ThemeData.light();
 final _darkThemeData = ThemeData.dark();
 
-/// Material Light Theme
+/// Light Theme
 final primaryMaterialTheme = _lightThemeData.copyWith(
   textTheme: _lightThemeData.textTheme.apply(
     fontFamily: 'Lato',
+  ),
+  backgroundColor: ThemeColors.background,
+  bottomAppBarColor: ThemeColors.primary,
+  cursorColor: ThemeColors.black,
+  hintColor: const Color.fromARGB(60, 25, 25, 25),
+  bottomAppBarTheme: _lightThemeData.bottomAppBarTheme.copyWith(
+    color: ThemeColors.primary,
+    elevation: 0,
+  ),
+  buttonTheme: _lightThemeData.buttonTheme.copyWith(
+    buttonColor: ThemeColors.primary,
+    focusColor: ThemeColors.primary.withOpacity(0.5),
   ),
   appBarTheme: _lightThemeData.appBarTheme.copyWith(
     color: ThemeColors.background,
@@ -30,7 +42,7 @@ final primaryMaterialTheme = _lightThemeData.copyWith(
   ),
 );
 
-/// Material Dark Theme
+/// Dark Theme
 final darkMaterialTheme = _darkThemeData.copyWith(
   textTheme: _darkThemeData.textTheme.apply(
     fontFamily: 'Lato',
