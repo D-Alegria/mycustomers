@@ -9,14 +9,16 @@ import 'package:stacked/stacked.dart';
 import 'home_page_viewmodel.dart';
 
 class HomePageView extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
+
     return ViewModelBuilder<HomePageViewModel>.reactive(
       builder: (context, model, child) => Scaffold(
         body: SafeArea(
           child: Container(
             child: UnderConstruction(),
-        ),
+          ),
         ),
       ),
       viewModelBuilder: () => HomePageViewModel(),
@@ -26,7 +28,7 @@ class HomePageView extends StatelessWidget {
 
 
 /// FORMER HOME LAYOUT
-/// 
+///
 // child: Padding(
 //                 padding: const EdgeInsets.all(10.0),
 //                 child: Column(
@@ -170,7 +172,7 @@ class HomePageView extends StatelessWidget {
 //                   backgroundColor: Colors.red.shade800,
 //                   radius: 5.0,
 //                 ),
-                    
+
 //               ],
 //               overflow: Overflow.clip,
 //             )),
