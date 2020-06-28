@@ -40,6 +40,7 @@ abstract class Routes {
   static const addDebt = '/addDebt';
   static const transactionDetails = '/transactionDetails';
   static const transactionHistory = '/transactionHistory';
+
 }
 
 class Router {
